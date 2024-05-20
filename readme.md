@@ -1,17 +1,19 @@
 # PythonDevTrial
 
-## Scope & Requirements
+## Brief & Requirements
 
-In this project you will build a REST API for an information system and let's say you will work only for 2 modules:
+In this project you will build a REST API for an information system and you will work only for 2 modules:
 
 - Order
 - Inventory
 
-The main plugin we use to build the API is FastAPI, you are required to build under this platform. For the database you can use any database (SQLite, MySQL, Postgre, etc).
+The main plugin we use to build the API is FastAPI, you are required to build with this platform. For the database you can use any database (SQLite, MySQL, Postgre, etc) preferably MySQL / SQLite.
+
+## Scope
 
 ### Order
 
-In order, you will have properties for example:
+#### Properties
 
 - DocumentNo
 - Customer
@@ -28,7 +30,7 @@ In order, you will have properties for example:
   - AfterTax
 
 - Description
-- Status [**Pending** | **Sent** | **Closed**]
+- Status [**Pending** | **Sent** | **Paid** | **Closed**]
 - Subtotal
 - Discount
 - AfterDiscount
@@ -42,21 +44,23 @@ In order, you will have properties for example:
 #### Business Logic
 
 - When the order is still pending, we can change everything.
-- But after all the items are sent, we can edit only for some properties like description of the order.
+- But after order is paid, we can edit only for some properties like description of the order.
 - Order status are automatically change to **Sent** when all of the order items are sent (QtySent = Qty), vice versa, it automatically back to **Pending** if the user update the sent items (QtySent < Qty)
 
 #### API End Points
 
-| METHOD | END POINTS       | Params                                                                                                                    |
-| :----- | :--------------- | :------------------------------------------------------------------------------------------------------------------------ |
-| GET    | /order           | $q = search string in customer name, description, document no; $limit; $page, $orderBy = column name; $order = ASC / DESC |
-| POST   | /order           | $OrderObject                                                                                                              |
-| PUT    | /order/{orderId} | $OrderObject                                                                                                              |
-| DELETE | /order/{orderId} |                                                                                                                           |
+| METHOD | END POINTS                    | Params / Brief                                                                                                               |
+| :----- | :---------------------------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| GET    | /order                        | $q = search string in customer name, description, document no; $limit; $page, $orderBy = column name; $order = ASC / DESC    |
+| GET    | /order/details                | $productId = filter by product; $customerId = filter by customer; $limit; $page, $orderBy = column name; $order = ASC / DESC |
+| POST   | /order                        | $OrderObject                                                                                                                 |
+| POST   | /order/{orderId}/mark-as-paid | Will mark this order as paid                                                                                                 |
+| PUT    | /order/{orderId}              | $OrderObject                                                                                                                 |
+| DELETE | /order/{orderId}              |
 
 ### Inventory
 
-In inventory, you will have properties like:
+#### Properties
 
 - OrderDetail (relation to order detail)
 - Order (relation to order)
