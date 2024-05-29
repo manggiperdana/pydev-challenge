@@ -33,7 +33,7 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-4. View documentation utl page at to check endpoint:
+4. View documentation url page at to check endpoint:
 ```
 http://localhost:8000/docs
 ```
