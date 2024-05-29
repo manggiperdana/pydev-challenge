@@ -33,7 +33,10 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-
+4. View documentation utl page at to check endpoint:
+```
+http://localhost:8000/docs
+```
 ## Brief & Requirements
 
 In this project you will build a REST API for an information system and you will work only for 2 modules:
