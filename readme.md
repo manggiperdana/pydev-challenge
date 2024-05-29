@@ -1,5 +1,39 @@
 # PythonDevTrial
 
+## Spesification
+- Python version : Python 3.12.3
+- Pip version : pip 24.0
+- use virtualenv
+- Database Using SQLite
+
+## Architecture
+ - api (for router with endpoint versioning)
+ - core (for config and utility)
+ - db (for database session)
+ - models (for table orm)
+ - repositories (for logical processes)
+ - schemas (for schematic request and response data transfer object)
+ - services (for business based processes)
+
+## Usage
+Linux / MacOs command
+1. Make sure you have .env file for generated test.db you can copy from .env.sample, it's have database url config, api endpoint versioning, and debug status.
+
+```
+cp .env.sample .env
+```
+2. Run requirement.txt to download package need for this project
+
+```
+pip install -r requirements.txt
+```
+3. Run the locally project with
+
+```
+uvicorn app.main:app --reload
+```
+
+
 ## Brief & Requirements
 
 In this project you will build a REST API for an information system and you will work only for 2 modules:
