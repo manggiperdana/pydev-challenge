@@ -15,6 +15,15 @@
  - schemas (for schematic request and response data transfer object)
  - services (for business based processes)
 
+## Optional prerequisite
+Crate python virtualenv
+example command for macOS using python 3
+
+```
+python3 -m venv venv
+source ./venv/bin/activate
+```
+
 ## Usage
 Linux / MacOs command
 1. Make sure you have .env file for generated test.db you can copy from .env.sample, it's have database url config, api endpoint versioning, and debug status.
